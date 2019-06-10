@@ -1,0 +1,103 @@
+<section class="mb-4">
+
+  <!--Section heading-->
+  <h2 class="h1-responsive font-weight-bold text-center my-4">Zadanie rekrutacyjne</h2>
+  <!--Section description-->
+  <p class="text-center w-responsive mx-auto mb-5">Aby wyświetlić informacje na temat firmy podaj numer NIP, KRS lub
+    REGON.
+    <br>(numer NIP może posiadać kod kraju lub myślniki)
+  </p>
+
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-md-4 mb-md-0 mb-5">
+      <div class="md-form mb-0">
+        <label for="name" class="text-center">NIP/KRS/REGON</label>
+        <input type="text" id="queryKey" [(ngModel)]=queryKey name="queryKey" class="form-control">
+      </div>
+      <br>
+      <div class="text-center text-md-center">
+        <a class="btn btn-outline-primary" (click)="findCompany()">Pobierz dane</a>
+      </div>
+      <br>
+
+      <form *ngIf="queried" id="contact-form" name="contact-form">
+
+        <!--Grid row-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <label for="name">Nazwa</label>
+              <input type="text" id="name" name="name" value="{{company.name}}" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+          <div class="col-md-9">
+            <div class="md-form mb-0">
+              <label for="street">Ulica</label>
+              <input type="text" id="street" name="street" value="{{company.street}}" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="md-form mb-0">
+              <label for="streetNumber" class="">Nr</label>
+              <input type="text" id="streetNumber" name="streetNumber" value="{{company.streetNumber}}"
+                     class="form-control">
+            </div>
+          </div>
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-5">
+            <div class="md-form">
+              <label for="postCode">Kod pocztowy</label>
+              <input type="text" id="postCode" name="postCode" value="{{company.postCode}}" class="form-control">
+            </div>
+          </div>
+          <!--Grid column-->
+          <div class="col-md-7">
+            <div class="md-form">
+              <label for="city">Miasto</label>
+              <input type="text" id="city" name="city" value="{{company.city}}" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!--Grid row-->
+        <br>
+        <!--Grid row-->
+        <div class="row">
+          <div class="col-md-12">
+            <div *ngIf="notFound" class="alert alert-danger">
+              Nie znaleziono danych!
+            </div>
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-md-5">
+
+      <p>Dane testowe:</p>
+      <p><strong>NIP: </strong> 5270103391, 5252344078, 7792254227</p>
+      <p><strong>KRS: </strong> 0000231231, 0000240611, 0000056838</p>
+      <p><strong>REGON: </strong> 140182840, 300040065, 010016565</p>
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+
+</section>
