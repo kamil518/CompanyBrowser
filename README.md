@@ -19,3 +19,13 @@ To run unit tests you need to use "dotnet test" command in solution directory.
 
 ## Running the application
 In order to run the application, you need to run command "dotnet" on project's dll (NIPApplication.dll) produced in "publish" directory. 
+
+## Using the application
+Client site of the application has one input where user can provide one of three keys (Nip, Regon or KRS) by which the companies table will be queried. After pressing the button details of queried company would be displayed.
+
+There is a theoretical possibility that company A can have the same NIP number as Regon of company B. By the design in such situation NIP filter has priority and company A would be displayed. 
+
+Querying by empty string or white space results in 400 Bad Request server response.
+
+If there is no record with provided key, appropriate message will appear.
+
